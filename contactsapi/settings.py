@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
+import django_heroku
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -65,15 +68,7 @@ SWAGGER_SETTINGS = {
     }
 }
 
-# SWAGGER_SETTINGS = {
-#     'SECURITY_DEFINITIONS': {
-#         "Auth Token eg [Bearer (JWT) ]": {
-#             "type": "apiKey",
-#             "name": "Authorization",
-#             "in": "header"
-#         }
-#     }
-# }
+
 
 
 MIDDLEWARE = [
@@ -160,5 +155,8 @@ CORS_ALLOW_CREDENTIALS = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+django_heroku.settings(locals())
 
 
